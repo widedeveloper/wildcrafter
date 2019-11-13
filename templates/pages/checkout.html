@@ -1,0 +1,189 @@
+{{#partial "head"}}
+
+{{{ checkout.checkout_head }}}
+<!-- {{{ stylesheet '/assets/css/optimized-checkout.css' }}} -->
+{{ getFontsCollection }}
+{{{stylesheet '/assets/css/checkout.css'}}}
+
+
+{{{head.scripts}}} {{/partial}} {{#partial "page"}}
+
+<script type="text/javascript">
+    window.language = {{{langJson 'optimized_checkout'}}};
+</script>
+
+<header class="wc-header">
+    <div class="wc-header__container">
+        <div class="wc-header__left-menu">
+            <div class="wc-header__left-menu-item header__continue_shopping" data-menu-item-id="185">
+                <a href="{{theme_settings.wp_url}}">
+                    <i class="md-icons">arrow_back</i>
+                    <span>CONTINUE SHOPPING </span>
+                </a>
+            </div>
+        </div>
+        <div class="wc-header__logo-wrapper">
+            <a class="wc-header__logo-container" href="../">
+                <img class="wc-header__logo-large" src="{{getImage settings.store_logo.image 'logo_size'}}">
+                <i class="wc-header__logo-sticky icon-wildcrafter-logo"></i>                
+            </a>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+{{{ checkout.checkout_content }}}
+</div>
+
+<footer class="wc-footer-custom">
+    <div class="wc-footer__menu-custom">
+        <a class="wc-footer__menu-custom-link" href="{{theme_settings.support_url}}/hc/en-us/categories/360002006492-Returns">Refund Policy</a>
+    </div>
+    <div class="wc-footer__menu-custom">
+        <a class="wc-footer__menu-custom-link" href="{{theme_settings.wp_url}}/privacy-policy/">Privacy Policy</a>
+    </div>
+    <div class="wc-footer__menu-custom">
+        <a class="wc-footer__menu-custom-link" href="{{theme_settings.wp_url}}/terms-of-service/">Terms of service</a>
+    </div>
+</footer>
+
+{{{ footer.scripts }}}
+
+<script src="{{cdn 'assets/js/custom/jquery-ver=1.12.4.js'}}"></script>
+<script src="{{cdn 'assets/js/custom/main.min.js'}}"></script>
+<script src="{{cdn 'assets/js/custom/vendor.min.js'}}"></script>
+
+{{/partial}}
+
+{{> layout/empty}}
+
+<script>
+    var html_loaded = false;
+    
+    // Containers
+    var $checkout_app = jQuery("#checkout-app");
+    var $customer_returning = jQuery("#checkout-customer-returning");
+    
+    jQuery(window).load(function() {
+        makeUpdates();
+        jQuery("body").on("DOMSubtreeModified", function() {
+            makeUpdates();
+        });
+    });
+    
+    function makeUpdates() {
+        updateLabels();
+        updateButtons();
+        updateLinkTargets();
+                
+        setTimeout(function() {
+            updateCustomerLogin();
+            
+            if (jQuery(".form-actions")) {
+                $checkout_app.addClass("visible");
+                $customer_returning.addClass("visible");
+            }
+            
+            if (!html_loaded) {
+                pageUpdates();
+                addEditCartButton();
+            }
+
+            if (!html_loaded & $checkout_app.hasClass("visible")) {
+                html_loaded = true;
+                defaultCustomerLogin();
+            }
+            
+            updateButtons();
+            updateModal();
+            updateLinkTargets();
+        }, 1000);
+    }
+    
+    function defaultCustomerLogin() {
+        if (jQuery("#checkout-customer-login")[0]) {
+            jQuery("#checkout-customer-login")[0].click();  
+        }
+    }
+
+    function updateCustomerLogin() {
+        var signup_button = "<a class='button optimizedCheckout-buttonSecondary mdc-button mdc-button--x-small secondary' href='../login.php?action=create_account' target='_self'>sign up</a>";
+        var signup_line = "Don’t have an account? <span class='continue-guest-account' onclick='continueGuest()'>Continue as guest</span> to continue.";
+                
+        if (!jQuery("#checkout-customer-returning span").hasClass('continue-guest-account')) {
+            jQuery("#checkout-customer-returning span").html(signup_line);
+            $checkout_app.addClass("visible");
+            $customer_returning.addClass("visible");
+            jQuery("#checkout-customer-cancel").parent().append(signup_button);
+        }
+    }
+    
+    function addEditCartButton() {
+        var edit_cart_button = '<div class="edit-cart-wrapper"><a class="mdc-button mdc-button--x-small primary" data-test="cart-edit-link" href="/cart.php" id="cart-edit-link" target="_self" style="">Edit Cart</a></div>';
+        jQuery(edit_cart_button).appendTo(".cart-section:first");
+    }
+    
+    function pageUpdates() {
+        jQuery(".cart-title").text("Your Order");
+        jQuery(".stepHeader-title.optimizedCheckout-headingPrimary")[0].textContent = "Account";
+    }
+    
+    function updateLinkTargets() {
+        jQuery(".checkout-form a").attr('target', '_self');
+    }
+    
+    function updateModal() {
+        updatePromoCodeLabel();
+        updateEditCartTarget();
+    }
+    
+    function updatePromoCodeLabel() {
+        jQuery("input[name=redeemableCode]").attr('placeholder', "Promo Code");
+    }
+    
+    function updateEditCartTarget() {
+        jQuery(".cart-modal-link").attr('target', '_self');
+    }
+    
+    function updateButtons() {
+        var primary_x_small = 'mdc-button mdc-button--x-small primary';
+        var secondary_x_small = 'mdc-button mdc-button--x-small secondary';
+        var text_small = 'mdc-button mdc-button--small text';
+        
+        updateButton(".customerView-actions .optimizedCheckout-buttonSecondary", primary_x_small);
+        updateButton(".stepHeader-actions .optimizedCheckout-buttonSecondary", text_small);
+        updateButton(".instrumentModal-trigger", primary_x_small);
+        updateButton("#checkout-customer-continue", primary_x_small);
+        updateButton("#checkout-customer-cancel", primary_x_small);
+        updateButton("#checkout-payment-continue", primary_x_small);
+        updateButton("#checkout-shipping-continue", primary_x_small);
+        updateButton("#checkout-customer-login", primary_x_small);
+        updateButton("#applyRedeemableButton", secondary_x_small);
+        updateButton("#checkout-billing-continue", primary_x_small);
+        updateButton(".cart-header-link", primary_x_small);
+    }
+    
+    function updateButton(selector, buttonType) {
+        jQuery(selector).addClass(buttonType);
+    }
+    
+    function updateLabels() {
+        updateLabel(".layout-main input[type=email]");
+        updateLabel(".layout-main input[type=password]");
+        updateLabel(".layout-main input[type=text]");
+        updateLabel(".layout-main input[type=tel]");
+    }
+    
+    function updateLabel(selector) {
+        jQuery(selector).each(function() {
+            var id = jQuery(this).attr('id');
+            var lable = jQuery("label[for=" + id + "].form-label").text();
+            jQuery(this).attr('placeholder', lable);
+        })
+    }
+
+    function continueGuest() {
+        jQuery("#checkout-customer-cancel")[0].click();
+    }
+    
+</script>

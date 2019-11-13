@@ -1,0 +1,42 @@
+ 
+
+    {{#each cart.suggested_products}}
+    <div class="shopping-cart__product" data-item-row>
+        <div class="shopping-cart__product-img-container {{#each custom_fields}}{{#if name '==' 'color'}} {{{value}}} {{/if}}{{/each}}" >
+            <img class="shopping-cart__product-img  lazyload" data-sizes="auto" src="{{getImage image 'productdivumb_size' (cdn ../../diveme_settings.default_image_product)}}"
+                alt="{{image.alt}}" title="{{image.alt}}">
+        </div>
+        <div class="shopping-cart__product-info-container">
+                <div class="shopping-cart__product-info-label">{{name}}</div>
+                {{#each custom_fields}}          
+                    {{#if name '==' 'Sub Title'}}
+                    <div class="shopping-cart__product-info-sub" >{{{value}}}</div>
+                    {{/if}}
+                {{/each}}
+            <div class="shopping-cart__hline"></div>
+            <div class="shopping-cart__product-info-3part">
+                {{price.without_tax.formatted}}
+                {{#each custom_fields}}   
+                    {{#if name '==' 'boxes'}}
+                    | {{{value}}} Box
+                    {{/if}}                        
+                {{/each}}
+                {{#each custom_fields}}
+                {{#if name '==' 'cups'}}
+                    | {{{value}}} K-Cups
+                    {{/if}}
+                {{/each}}
+            </div>
+            <div class="shopping-cart__hline"></div>
+            <form class="form" method="post" action="/cart.php" enctype="multipart/form-data" data-cart-item-add="">
+                <input type="hidden" name="action" value="add">
+                <input type="hidden" name="product_id" value="{{id}}">
+                <button data-wait-message="Adding to cart…" class="button mdc-button  button--primary" type="submit" value="Add to Cart">Add Pack</button>
+            </form>
+        </div>
+                <div class="shopping-cart__product-save-icon">
+                    <span>Save 10%</span>
+                </div>
+
+    </div>
+    {{/each}}

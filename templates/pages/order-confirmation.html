@@ -1,0 +1,65 @@
+{{#partial "head"}}
+{{{ checkout.checkout_head }}}
+{{{ stylesheet '/assets/css/checkout-order.css' }}}
+{{ getFontsCollection }}
+
+<script type="text/javascript">
+    window.language = {{{langJson 'optimized_checkout'}}};
+</script>
+
+{{{head.scripts}}}
+
+{{/partial}}
+
+{{#partial "page"}}
+<header class="wc-header">
+    <div class="wc-header__container">
+        <div class="wc-header__left-menu">
+            <div class="wc-header__left-menu-item header__continue_shopping" data-menu-item-id="185">
+                <a href="http://wildcrafter.com/">
+                    <i class="md-icons">arrow_back</i>
+                    <span>CONTINUE SHOPPING </span>
+                </a>
+            </div>
+        </div>
+        <div class="wc-header__logo-wrapper">
+            <a class="wc-header__logo-container" href="../">
+                <img class="wc-header__logo-large" src="{{getImage settings.store_logo.image 'logo_size'}}"></img>
+                <i class="wc-header__logo-sticky icon-wildcrafter-logo"></i>
+            </a>
+        </div>
+    </div>
+</header>
+
+{{{ checkout.order_confirmation_content }}}
+
+
+<footer class="wc-footer-custom">
+    <div class="wc-footer__menu-custom">
+        <a class="wc-footer__menu-custom-link" href="{{theme_settings.support_url}}/hc/en-us/categories/360002006492-Returns">Refund Policy</a>
+    </div>
+    <div class="wc-footer__menu-custom">
+        <a class="wc-footer__menu-custom-link" href="https://wildcrafter.com/privacy-policy/">Privacy Policy</a>
+    </div>
+    <div class="wc-footer__menu-custom">
+        <a class="wc-footer__menu-custom-link" href="https://wildcrafter.com/terms-of-service/">Terms of service</a>
+    </div>
+</footer>
+<script src="{{cdn 'assets/js/custom/jquery-ver=1.12.4.js'}}"></script>
+<script src="{{cdn 'assets/js/custom/main.min.js'}}"></script>
+<script src="{{cdn 'assets/js/custom/vendor.min.js'}}"></script>
+
+{{{ footer.scripts }}}
+
+{{/partial}}
+
+{{> layout/empty}}
+
+
+<script>
+    jQuery(window).load(function() {
+        jQuery("body").on("DOMSubtreeModified", function() {
+            jQuery("button").addClass('mdc-button mdc-button--x-small primary');
+        });
+    });
+</script>

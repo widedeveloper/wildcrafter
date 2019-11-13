@@ -1,0 +1,27 @@
+{{#if template '==' 'pages/home'}}
+
+{{else}}
+<footer class="wc-footer-custom">
+  <div class="wc-footer__menu-custom">
+    <a
+      class="wc-footer__menu-custom-link"
+      href="{{ theme_settings.support_url }}/hc/en-us/categories/360002006492-Returns"
+      >{{lang 'custom.footer.links.refund_policy'}}</a
+    >
+  </div>
+  <div class="wc-footer__menu-custom">
+    <a
+      class="wc-footer__menu-custom-link"
+      href="{{ theme_settings.privacy_policy_url }}"
+      >{{lang 'custom.footer.links.privacy_policy'}}</a
+    >
+  </div>
+  <div class="wc-footer__menu-custom">
+    <a
+      class="wc-footer__menu-custom-link"
+      href="{{ theme_settings.terms_of_service_url }}"
+      >{{lang 'custom.footer.links.terms_of_service'}}</a
+    >
+  </div>
+</footer>
+{{/if}}

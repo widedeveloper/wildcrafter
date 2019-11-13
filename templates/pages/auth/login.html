@@ -1,0 +1,61 @@
+{{#partial "page"}}
+<div class="login">
+    {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+    <h1 class="page-heading">{{lang 'login.heading' }}</h1>
+    {{#if forms.login.error}}
+        {{> components/common/alert-error forms.login.error}}
+    {{/if}}
+    {{#if forms.login.success}}
+        {{> components/common/alert-success forms.login.success}}
+    {{/if}}
+    <div class="login-row">
+        <form class="login-form form" action="{{urls.auth.check_login}}" method="post">
+            {{inject 'useValidEmail' (lang 'forms.validate.common.email_address')}}
+            {{inject 'enterPass' (lang 'forms.validate.common.password')}}
+            <div class="form-field">
+                <div class="mdc-text-field mdc-text-field--with-trailing-icon">
+                    <i class="material-icons mdc-text-field__icon icon-align-left">mail</i>
+                    <label class="form-label mdc-floating-label label-align-left" for="login_email">{{lang 'login.field_email'}}</label>
+                    <input class="form-input mdc-text-field__input" name="login_email" id="login_email" type="email">
+                </div>
+            </div>
+            <div class="form-field">
+                <div class="mdc-text-field mdc-text-field--with-trailing-icon">
+                    <i class="material-icons mdc-text-field__icon icon-align-left">https</i>
+                    <i class="material-icons mdc-text-field__icon">visibility</i>
+                    <label class="form-label mdc-floating-label label-align-left" for="login_pass">{{lang 'login.field_password'}}</label>
+                    <input class="form-input mdc-text-field__input" id="login_pass" type="password" name="login_pass" autocomplete="off">
+                </div>
+            </div>
+            <div class="form-actions">  
+                <a class="forgot-password" href="{{urls.auth.forgot_password}}">{{lang 'login.forgot_password' }}</a>
+
+                <!-- <input type="submit" class="button button--primary" value="{{lang 'login.submit_value' }}"> -->
+                <button type="submit" class="mdc-button mdc-button--primary" value="{{lang 'login.submit_value' }}">{{lang 'login.submit_value' }}</button>
+            </div>
+        </form>
+        {{#if settings.account_creation_enabled}}
+            <div class="new-customer">
+                <div class="panel">
+                    <div class="panel-header">
+                        <h2 class="panel-title">{{lang 'login.new_customer.heading' }}</h2>
+                    </div>
+                    <div class="panel-body">
+                        <p class="mdc-typography-roman-regular-normal">{{lang 'login.new_customer.intro' }}</p>
+                        <ul class="mdc-typography-roman-regular login-page">
+                            <li >{{lang 'login.new_customer.fact1' }}</li>
+                            <li >{{lang 'login.new_customer.fact2' }}</li>
+                            <li >{{lang 'login.new_customer.fact3' }}</li>
+                            <li >{{lang 'login.new_customer.fact4' }}</li>
+                        </ul>
+                        <div class="form-actions">
+                        <a href="{{urls.auth.create_account}}" class="mdc-button mdc-button--primary primary">{{lang 'login.new_customer.create_account' }}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{/if}}
+    </div>
+</div>
+{{/partial}}
+{{> layout/base}}

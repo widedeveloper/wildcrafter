@@ -1,0 +1,54 @@
+// =============================================================================
+// Stencil Checkout  - Customize the checkout experience
+// =============================================================================
+//
+// This file is for checkout customizations for Default one-page checkout.
+//
+// -----------------------------------------------------------------------------
+@import "material/material";
+.header__continue_shopping {
+    a {
+        text-decoration: none !important;
+    }
+    .md-icons {
+        display: table-cell;
+        color: #757575;
+    }
+    span {
+        display: table-cell;
+        vertical-align: middle;
+        padding-left: 6px;
+        line-height: 25px;
+        font-family: EngraversGothicBT, Arial, Helvetica, sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 16px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: #000 !important;
+    }
+}
+.wc-footer-custom {
+    background-color: #FFF;
+    overflow: hidden;
+    height: 80px;
+    margin: 0px 30px;
+    padding: 27px 0px;
+    border-top: solid 1px rgba(0, 0, 0, 0.2);
+    width: calc(100% - 60px);
+    .wc-footer__menu-custom {
+        display: inline-block;
+        padding-right: 24px;
+        .wc-footer__menu-custom-link {
+            font-family: EngraversGothicBT, Arial, Helvetica, sans-serif;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 16px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none !important;
+            color: #000 !important;
+            line-height: 1.56;
+        }
+    }
+}

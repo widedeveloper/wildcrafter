@@ -1,0 +1,150 @@
+<div id="edit-subscriptions">
+  <div class="has-subscriptions">
+    <div class="subscript-monthly">
+      <div class="sbs-monthly-label">
+        <strong class="" id="plan_id"></strong>
+      </div>
+      <div class="sbs-monthly-value">
+        <div class="subscription-delete" id="subcription-delete" data-subid=""><i class="fa fa-trash fa-2x" aria-hidden="true style="margin-top: -10px;""></i></div>
+      </div>
+    </div>
+    <div class="subscript-monthly-content">
+      <div class="sbs-monthly-label-content">
+        <span class="">Order#</span>
+      </div>
+      <div class="sbs-monthly-value-content">
+        <span class="" id="order_id"></span>
+      </div>
+    </div>
+
+    <div class="subscript-monthly-content">
+      <div class="sbs-monthly-label-content">
+        <span class="">Ship To</span>
+      </div>
+      <div class="sbs-monthly-value-content">
+        <span class="" id="ship_to">123456 Main Street, Denver, CO 89898</span>
+      </div>
+    </div>
+
+    <div class="subscript-monthly-content">
+      <div class="sbs-monthly-label-content">
+        <span class="">Status</span>
+      </div>
+      <div class="sbs-monthly-value-content">
+        <span class="" id="active_status"></span>
+      </div>
+    </div>
+
+    <div class="subscript-monthly">
+      <div class="sbs-monthly-label" style="float:none;">
+        <strong class="">Subscription</strong>
+      </div>
+    </div>
+
+    <div
+      class="shopping-cart__products shopping-cart_page_products"
+      data-cart-quantity=""
+      id="subscription_list"
+    ></div>
+
+    <div class="sbs-total">
+      <div class="sbs-total-item">
+        <div class="sbs-total-item-label"><span>Subtotal</span></div>
+        <div class="sbs-total-item-value" id="sub_total"><strong></strong></div>
+      </div>
+      <div class="sbs-total-item">
+        <div class="sbs-total-item-label"><span>Taxes</span></div>
+        <div class="sbs-total-item-value" id="taxes"><strong></strong></div>
+      </div>
+      <div class="sbs-total-item">
+        <div class="sbs-total-item-label"><span>Shipping</span></div>
+        <div class="sbs-total-item-value" id="shipping"><strong>Free</strong></div>
+      </div>
+      <div class="sbs-total-item">
+        <div class="sbs-total-item-label"><span>Total</span></div>
+        <div class="sbs-total-item-value" id="total"><strong></strong></div>
+      </div>
+    </div>
+
+    <div class="subscript-monthly">
+      <div class="sbs-monthly-label" style="float:none;">
+        <strong class="mdc-typography-roman-regular-normal">Billing</strong>
+      </div>
+    </div>
+    <div class="">
+      <div class="subscript-monthly-content">
+        <div class="sbs-monthly-label-content">
+          <span class="">First Bill Date</span>
+        </div>
+        <div class="sbs-monthly-value-content">
+          <span class="" id="first_bill_date"></span>
+        </div>
+      </div>
+      <div class="subscript-monthly-content">
+        <div class="sbs-monthly-label-content">
+          <span class="">Current Billing Period</span>
+        </div>
+        <div class="sbs-monthly-value-content">
+          <span class="" id="current_bill_period"></span>
+        </div>
+      </div>
+      <div class="subscript-monthly-content">
+        <div class="sbs-monthly-label-content">
+          <span class="">Next Bill Date</span>
+        </div>
+        <div class="sbs-monthly-value-content">
+          <span class="" id="next_bill_date"></span>
+        </div>
+      </div>
+      <div class="subscript-monthly-content">
+        <div class="sbs-monthly-label-content">
+          <span class="">Next Bill Amount</span>
+        </div>
+        <div class="sbs-monthly-value-content">
+          <span class="" id="next_bill_amount"></span>
+        </div>
+      </div>
+      <div class="subscript-monthly-content">
+        <div class="sbs-monthly-label-content">
+          <span class="">Recurrence</span>
+        </div>
+        <div class="sbs-monthly-value-content">
+          <span class="" id="recurrence"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="subscript-monthly">
+      <div class="sbs-monthly-label" style="float:none;">
+        <strong class="mdc-typography-roman-regular-normal">Payment</strong>
+      </div>
+      <!-- <div class="sbs-monthly-value">
+        <button class="button button--tertiary button--tiny optimizedCheckout-buttonSecondary mdc-button mdc-button--small text" id="subpayment-edit-btn" data-subid="" type="button">Edit</button>
+      </div> -->
+    </div>
+    <div class="subscript-monthly-content">
+      <div class="sbs-monthly-label-content">
+        <span class="">Select Payment Method</span>
+      </div>
+      <div class="sbs-monthly-value-content">
+        <!-- <i class="mdc-select__dropdown-icon"></i> -->
+        <div class="mm-dropdown" id="payment-method-select">
+          
+        </div>    
+        <!-- <div class="mdc-button mdc-button--x-small secondary select-payment-method">
+          <i class="mdc-select__dropdown-icon"></i>
+          
+          <select id="payment-method-select" class="payment-method-select">
+          </select>
+      </div> -->
+    </div>
+    <div class="add-payment-method">
+      <a href="{{urls.account.payment_methods.all}}">
+        <strong>Add Payment Method</strong>
+      </a>
+    </div>
+  </div>
+  <div class="has-no-subscriptions">
+    You do not have any active subscriptions
+  </div>
+</div>

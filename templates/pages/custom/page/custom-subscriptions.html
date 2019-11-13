@@ -1,0 +1,26 @@
+{{#partial "page"}}
+
+{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+<script src="{{cdn 'assets/js/custom/jquery-ver=1.12.4.js'}}"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<main class="page">
+  {{#unless theme_settings.hide_page_heading }}
+  <h1 class="page-heading">{{ page.title }}</h1>
+  {{/unless}}
+
+  {{> components/account/navigation account_page='subscriptions'}}
+
+  <div class="page-content page-content--centered">      
+    <div id="subscriptions-container" class="content-scroll">
+      <h3 class="subscriptions-heading">Subscriptions</h3>
+      {{> components/custom/subscriptions/subscriptions}}
+      {{> components/custom/subscriptions/edit-subscription}}
+      
+    </div>
+  </div>
+</main>
+
+{{/partial}}
+
+{{> layout/base}}

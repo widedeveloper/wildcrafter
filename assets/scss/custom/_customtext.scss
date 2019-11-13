@@ -1,0 +1,154 @@
+.wc-header{
+    z-index: 1050;
+}
+
+@media (max-width:768px) {
+    .wc-header__left-menu{
+        display: flex !important;
+        .header__continue_shopping span{
+            display: none;
+        }
+    }
+}
+
+
+
+.form-inlineMessage {
+    display: none;
+}
+
+.form-field--error .form-input, .form-field--error .form-select {
+    border-bottom-color: #cc4749 !important;
+}
+.mdc-text-field, .mdc-select {
+    min-width: 100% !important;
+    max-width: 100% !important;
+}
+
+.form-select{
+    font-family: HCo Sentinel SSm, Times New Roman, Times, serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1rem;
+    letter-spacing: .2px;
+}
+.mdc-select__native-control{
+    font-family: HCo Sentinel SSm, Times New Roman, Times, serif;
+    font-style: normal;
+}
+
+.mdc-text-field--with-trailing-icon .mdc-text-field__input {
+    padding-left: 48px !important;
+    padding-right: 48px !important;
+}
+.icon-align-left{
+    left: 12px !important;
+    right: auto !important;
+}
+.mdc-text-field .label-align-left {
+    left: 50px !important;
+    bottom: 12px !important;
+}
+
+.label-align-left.mdc-floating-label--float-above{
+    bottom: 24px !important;
+}
+
+.forgot-password{
+    display: block;
+    padding: 26px;
+}
+.mdc-button.mdc-button--primary{
+    margin-left: 0px;
+    width: 100%;
+}
+
+
+
+/////////// login - page //////////@at-root
+
+.mdc-typography-roman-regular.login-page{
+    line-height: 39px;
+}
+
+/////////// create account page ////////////@at-root
+
+.creat-account-form{
+    .form-field {
+        width: 50%;
+    }
+}
+
+////////// created account page ////////////@at-root
+
+.created-account-continue-shopping {
+    display: none;
+}
+
+.created-account-continue-checkout {
+    display: none;
+}
+
+
+////////// page data loading bar ////////@at-root
+.nanobar{
+    display: none;
+}
+
+/////// password ///////@at-root
+.form-prefixPostfix-button--postfix{
+    margin: 30px auto;
+}
+
+/////// create account page font ///////
+.forgot-password{
+    font-family: EngraversGothicBT, Arial, Helvetica, sans-serif;
+    text-decoration: none !important;
+}
+
+
+
+/// account page
+
+
+.account{
+    font-family: HCo Sentinel SSm, Times New Roman, Times, serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1rem;
+    letter-spacing: .2px;
+}
+
+.account-product-figure{
+    display: flex;
+    justify-content: center;
+    .account-product-image {
+        position: absolute !important;
+    }
+}
+.swal2-content{
+    font-family: HCo Sentinel SSm, Times New Roman, Times, serif;
+    font-style: normal;
+    font-weight: 400;
+}
+.swal2-confirm.button{
+    color: #252525 !important;
+    height: 56px;
+    padding: 4px 16px;    
+    font-family: EngraversGothicBT,Arial,Helvetica,sans-serif;    
+    font-style: normal;    
+    font-weight: 700;    
+    font-size: 1rem;    
+    line-height: 1rem;    
+    text-align: center;    
+    text-transform: uppercase;    
+    border-radius: 0;    
+    -webkit-border-radius: 0;    
+    -moz-border-radius: 0;    
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.3);    
+    background-color: #fff !important;   
+    border-style: none; 
+    width: 156px;
+}

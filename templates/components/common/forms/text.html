@@ -1,0 +1,20 @@
+<div class="form-field ">
+    <div class="mdc-text-field " id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+        <label class="form-label mdc-floating-label" for="{{id}}_input">{{label}}
+        </label>
+        <input type="text" id="{{id}}_input" data-label="{{label}}" name="{{name}}" {{#if value}} value="{{value}}"{{/if}} {{#if placeholder}} 
+        placeholder="{{placeholder}}"{{/if}} class="form-input mdc-text-field__input" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}}>
+        
+    </div>
+
+</div>
+
+<!-- 
+<div class="mdc-ripple-upgraded mdc-text-field" id="{{id}}" data-validation="{{validation}}" {{#if private_id}}data-type="{{private_id}}"{{/if}}>
+    <label class="mdc-floating-label" for="{{id}}_input">{{label}}        
+    </label>
+    <input type="text" id="{{id}}_input" data-label="{{label}}" name="{{name}}" {{#if value}} value="{{value}}"{{/if}} class="mdc-text-field__input" aria-required="{{required}}" {{#if private_id}}data-field-type="{{private_id}}"{{/if}}>
+    {{#if required}}<div class="mdc-line-ripple"></div>{{/if}}
+</div> -->
+
+

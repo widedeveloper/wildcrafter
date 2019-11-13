@@ -1,0 +1,165 @@
+{{#if banners.top}}
+<div class="banners" data-banner-location="top">
+   {{#each (limit banners.top_metadata 1)}}
+   <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}" data-position="{{this.location}}" data-banner-id="{{this.banner-name}}">
+       <div data-event-type="promotion-click">
+           {{{this.content}}}
+       </div>
+   </div>
+   {{/each}}
+</div>
+{{/if}}
+<aside class="wc-drawer-left mdc-drawer mdc-drawer--modal">
+    <div class="wc-drawer-left__header mdc-drawer__header">
+        <div class="wc-drawer-left__header-menu">
+            <div class="wc-drawer-left__header-menu-item" data-menu-item-id="185">Shop</div>
+            <div class="wc-drawer-left__header-menu-item" data-menu-item-id="186">Learn</div>
+        </div>
+        <div class="wc-drawer-left__flex-1"></div>
+        <a href="" title="Close" class="wc-drawer-left__close mdc-drawer__close" id="js-drawer-close-button">
+            <i class="icon-arrow-left"></i>
+        </a>
+    </div>
+    <div class="wc-drawer-left__content">
+        <div class="wc-drawer-left__menu-children">
+            <div class="wc-drawer-left__menu-children-pane" data-menu-item-id="185">                    
+                {{#each theme_settings.homepage_left_menu_titles.menus.Shop}}
+                <div class="wc-drawer-left__menu-children-pane-item {{this.color}}">
+                    <a class="wc-drawer-left__menu-children-pane-item-link" href="{{this.url}}">
+                        {{this.label}}
+                    </a>
+                </div>
+                {{/each}}
+            </div>
+            <div class="wc-drawer-left__menu-children-pane" data-menu-item-id="186">
+                {{#each theme_settings.homepage_left_menu_titles.menus.Learn}}
+                <div class="wc-drawer-left__menu-children-pane-item {{this.color}}">
+                    <a class="wc-drawer-left__menu-children-pane-item-link" href="{{this.url}}">
+                        {{this.label}}
+                        {{#if this.smal_label}}
+                            <span>{{this.smal_label}}</span>
+                        {{/if}}
+                    </a>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+
+        <div class="wc-drawer-left__separator-line"></div>
+
+        <div class="wc-drawer-left__second-menu">
+            {{#each theme_settings.homepage_left_menu_titles.pages}}
+            <a class="wc-drawer-left__second-menu-item" href="{{this.url}}">
+                {{this.label}}
+                {{#if this.smal_label}}
+                    <span>{{this.smal_label}}</span>
+                {{/if}}
+            </a>
+            {{/each}}
+        </div>
+
+        <div class="wc-drawer-left__flex-1"></div>
+
+        <div class="wc-drawer-left__social-icons">
+            {{#each theme_settings.homepage_left_menu_titles.social}}
+            <a class="wc-drawer-left__social-icon" href="{{this.url}}">
+                <i class="{{this.icon}}"></i>
+            </a>
+            {{/each}}
+        </div>
+    </div>
+</aside>
+
+<div class="mdc-drawer-scrim"></div>
+<aside class="wc-drawer-right mdc-drawer mdc-drawer--modal" dir="rtl">
+    <div class="wc-drawer-right__header mdc-drawer__header" dir="ltr">
+        <div class="wc-drawer-right__header-top">
+            <a href="" title="Close" class="wc-drawer-right__header-close mdc-drawer__close" id="js-drawer-right-close-button">
+                <i class="icon-arrow-right"></i>
+            </a>
+            <div class="wc-drawer-right__header-title">YOUR CART</div>
+        </div>
+    </div>    
+    <div class="wc-drawer-right__content" dir="ltr" height="100%">
+        <div class="page custom-cart-menu">
+            <main class="page-content" data-cart>  
+                    <div class="loadingOverlay"></div>                           
+               <div class="data-cart-show-menu" data-cart-show-menu>
+                    
+                    <div class="cart-delivery-content">
+                        <span class="cart-delivery-icons"><i class="wc-drawer-right__header-icon icon-delivery"></i></span>
+                        <span class="cart-delivery-text">Almost there! Free US shipping on orders of 2 packs or more.</span>
+                    </div>
+                    <div data-cart-totals>
+                        {{> components/cart/totals}}
+                    </div>
+                    <div class="checkout-btn-view">
+                        <a href="{{urls.checkout.single_address}}" class="mdc-button mdc-button--primary" value="{{lang 'cart.checkout.title' }}"><span>checkout</span></a>
+                    </div>
+                </div>
+                <!-- <section class="bc-cart" empty-cart-view-menu>
+                        <img class="shopping-cart__fill-your-cup-img" src="{{cdn 'images/fill_your_cup.svg'}}" alt="">
+                        <div class="shopping-cart shopping-cart--empty">
+                            <img class="shopping-cart__empty-cup-img" src="{{cdn 'images/empty_cup.png'}}" alt="">
+                        </div>
+                        <a class="shopping-cart__continue-shopping-button mdc-button primary" href="../">continue shopping</a>
+                </section> -->
+                <section class="bc-cart" empty-cart-view-menu>
+                        <div class="shopping-cart shopping-cart--empty" id="js-shopping-cart-root" data-cart-id="">
+                          <img class="shopping-cart__fill-your-cup-img" src="{{cdn 'images/fill_your_cup.svg'}}" alt="">
+                          <img class="shopping-cart__empty-cup-img" src="{{cdn 'images/empty_cup.png'}}" alt="">
+                          <a class="shopping-cart__continue-shopping-button mdc-button primary" href="">continue shopping</a>
+                        </div>
+                </section>                  
+            </main>
+        </div>
+    </div>
+</aside>
+
+<div class="mdc-drawer-scrim"></div>
+
+<div style="position: absolute; z-index: -999999; opacity: 0;">
+    <i class="md-icons">chevron_right</i>
+</div>
+<header class="wc-header" id="js-sticky-header">
+    <div class="wc-header__container">        
+        <div class="wc-header__left-menu">
+            <div class="header__continue_shopping">
+                <a href="http://wildcrafter.com/"> 
+                    <i class="md-icons">arrow_back</i>
+                    <span>CONTINUE SHOPPING </span>
+                </a>
+            </div>
+        </div>
+        <div class="wc-header__logo-wrapper">
+            <a class="wc-header__logo-container" href="../">
+                <!-- <img class="wc-header__logo-large" src="{{cdn 'tiles/wildcrafter-logo.svg'}}"></img> -->
+                <img class="wc-header__logo-large" src="{{getImage settings.store_logo.image 'logo_size'}}"></img>
+                <i class="wc-header__logo-sticky icon-wildcrafter-logo"></i>
+                
+            </a>
+            {{#if template '==' 'pages/home'}}
+            <style>
+                .wc-header__logo-wrapper{top:220%}
+                .loading {font-size: 20px;text-align: left;margin-left: 20px; margin-top:10px;cursor: pointer}                  
+                .loading:after {overflow: hidden;display: inline-block;vertical-align: bottom;-webkit-animation: ellipsis steps(4,end) 900ms infinite; animation: ellipsis steps(4,end) 900ms infinite;content: "\2026"; width: 0px; } 
+                                  
+                @keyframes ellipsis {
+                  to {
+                    width: 1.25em;    
+                  }
+                }
+
+                @-webkit-keyframes ellipsis {
+                  to {
+                    width: 1.25em;    
+                  }
+                }
+            </style>
+           <div class="loading" onclick="window.location.href='http://wildcrafter.com/'">Redirecting to Shop</div>
+            {{/if}}
+        </div>
+    </div>
+</header>
+
+<div class="wc-header-placeholder"></div>

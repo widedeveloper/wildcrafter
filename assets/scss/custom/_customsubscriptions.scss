@@ -1,0 +1,418 @@
+.page-content {
+  height: auto;
+  width: 100%;
+}
+
+#subscriptions-container {
+  .subscriptions-heading {
+    border-bottom: 1px solid#e5e5e5;
+    margin: 0;
+    padding-bottom: 1rem;
+  }
+}
+
+#subscriptions {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  .subscription-item{
+    border: 1px solid#e5e5e5;    
+    border-radius: 0.21429rem;    
+    padding: 0;    
+    width: calc(50% - 10px);
+    margin-top: 20px;   
+    p{
+      margin-bottom: 5px;
+      font-family: "Karla", Arial, Helvetica, sans-serif;
+      font-size: 16px;
+    }
+    .item-info{
+      display: flex;
+      padding: 15px;
+      border-bottom: 1px #e8e8e8 solid;
+      .icon{
+        width:50px;
+      }
+      .date {
+        text-align: right;
+        flex: 1;
+      }     
+      .frequency {
+        font-weight: 600;
+        font-size: 18px;
+      }
+    }
+    .ship-to{
+      display: flex;
+      padding: 15px;
+      .icon{
+        width:50px;
+      }      
+      .shipping-title {
+        font-weight: bold;
+      }
+    }
+    .manage-button {
+      margin: 0 auto;
+      text-align: center;
+    }
+  }
+}
+
+
+///////// should re-write
+#edit-subscriptions {
+  display: none;
+  .has-no-subscriptions {
+    display: none;
+  }
+  .subscript-monthly {
+    border-top: 0px solid #000 !important;
+    border-bottom: 2px solid #7f7f7f;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    .sbs-monthly-label {
+      font-size: 1.5rem;
+      padding: 0 10px 15px 10px;
+      color: #000;
+      text-align: left;
+      float: left;
+      strong {
+        font-weight: 400;
+      }
+    }
+    .sbs-monthly-value {
+      font-size: 1.125rem;
+      padding: 0 10px 15px 10px;
+      color: #000;
+      text-align: right;
+      margin-left: 74%
+      strong {
+        font-weight: 400;
+      }
+    }
+  }
+
+  .subscript-monthly-content {
+    .sbs-monthly-label-content {
+      font-size: 1.125rem;
+      padding: 0 10px 11px 10px;
+      color: #000;
+      text-align: left;
+      float: left;
+    }
+    .sbs-monthly-value-content {
+      font-size: 1.125rem;
+      padding: 0 10px 11px 10px;
+      color: #000;
+      margin-left: 40%;
+      .sbs-card-type {
+        float: left;
+      }
+      .sbs-card-number {
+        float: left;
+        margin-left: 30px;
+      }
+      .sbs-card-lock {
+        margin-left: 30px;
+      }
+    }
+  }
+
+  .sbs-total {
+    .sbs-total-item{
+      .sbs-total-item-label {
+        font-size: 1.125rem;
+        padding: 0 10px 11px 10px;
+        color: #000;
+        text-align: left;
+        float: left;
+        margin-left: 60%;
+      }
+      .sbs-total-item-value {
+        font-size: 1.125rem;
+        padding: 0 10px 11px 10px;
+        color: #000;
+        text-align: right;
+      }
+    }
+  }
+  .shopping-cart__products {
+    padding: 0 24px;
+    margin-bottom: 32px;
+    text-align: left;
+    .shopping-cart__product {
+      background-color: #fff;
+      display: flex;
+      position: relative;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.24);
+      .shopping-cart__product-img-container {
+        //background-color: #c9ac7a;
+        width: 160px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .shopping-cart__product-img {
+          max-width: 160px;
+          max-height: 104px;
+          display: block;
+        }
+      }
+      .shopping-cart__product-info-container {
+        padding: 0px 80px 0px 32px;
+        flex: 1;
+        a {
+          text-decoration: none !important;
+          color: #000;
+        }
+        .shopping-cart__product-info-label {
+          font-size: 1.5625rem;
+          margin-bottom: 0px;
+          line-height: 1.5;
+        }
+        .shopping-cart__product-info-sub {
+          font-family: EngraversGothicBT, Arial, Helvetica, sans-serif;
+          font-style: normal;
+          font-weight: 500;
+          margin-bottom: 10px;
+          font-size: 1.25rem;
+        }
+      }
+
+      
+      
+    }
+    .shopping-cart__product .price--discounted {
+      top: 20px;
+      padding: 0;
+    }
+    .price--discounted {
+      text-decoration: line-through;
+    }
+    .shopping-cart__product_price {
+      position: absolute;
+      top: 45px;
+      right: 10px;
+    }
+    .shopping-cart__product:not(:last-child) {
+      margin-bottom: 0px;
+    }
+  }
+  .add-payment-method {
+    text-align: center;
+    margin-top: 15px;
+  }
+  .mdc-select__dropdown-icon {
+    background: url("data:image/svg+xml;charset=utf-8,%3Csvg width='10' height='5' viewBox='7 10 10 5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' opacity='.54' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E") no-repeat 50%;
+    left: auto;
+    right: 8px;
+    position: absolute;
+    bottom: 16px;
+    width: 24px;
+    height: 24px;
+    transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+  }
+  .select-payment-method {
+    max-width: 80%;
+  }
+  .subscription-delete {
+    cursor: pointer;
+  }
+
+  div.mm-dropdown {
+    border: 1px solid #ddd;
+    width: 100%;
+    border-radius: 3px;
+  }
+  
+  div.mm-dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border: 0;
+  }
+  
+  div.mm-dropdown ul li,
+  div.mm-dropdown div.textfirst {
+    padding: 0;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+    padding: 5px 15px;
+  }
+  
+  div.mm-dropdown div.textfirst img.down {
+    float: right;
+    margin-top: 5px
+  }
+  
+  div.mm-dropdown ul li:last-child {
+    border-bottom: 0;
+  }
+  
+  div.mm-dropdown ul li {
+    display: none;
+    padding-left: 25px;
+  }
+  
+  div.mm-dropdown ul li.main {
+    display: block;
+  }
+  
+  div.mm-dropdown ul li img {
+    width: 20px;
+    height: 20px;
+  }
+  .subscription-card-num {
+    margin-left: 30%;
+  }
+  
+}
+#subscription-payment-edit {
+  display: none;
+  .form-body {
+    background-color: transparent;
+    margin: 0;
+    position: relative;
+    border: none;
+    box-shadow: none;
+    max-width: none;
+    padding: 0;
+    .form-checklist {
+      border: 1px solid #d9d9d9;
+      border-radius: 4px 4px 0 0;
+      color: #292929;
+      list-style: none;
+      margin-left: 0;
+      color: #292929;
+      list-style: none;
+      .form-checklist-item--selected{
+        background-color: #fafafa;
+        overflow: visible;
+      }
+      .form-checklist-item {
+        border-bottom: 1px solid #d9d9d9;
+      }
+    }
+    .form-checklist:not(:only-child) {
+      border-radius: 4px;
+    }
+  }
+  .form-field {
+    position: relative;
+    display: block;
+    margin: 0 0 1rem;
+    max-width: none;
+  }
+  .form-checklist-checkbox {
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  .form-label {
+    color: inherit;
+    display: block;
+    font-size: 1.15385rem;
+    line-height: 2.2;
+    margin-bottom: 0;
+    min-height: 4.61538rem;
+    padding: 1rem 2.25rem 1rem 3.75rem;
+        padding-left: 3.75rem;
+    position: relative;
+  }
+  .form-label::before {
+    border: 1px solid #d9d9d9;
+    left: 1.5rem;
+    height: 2rem;
+    width: 2rem;
+    background-color: #fff;
+    border-radius: 100%;
+    bottom: 0;
+    content: "";
+    margin: auto;
+    position: absolute;
+    top: 0;
+  }
+  .form-label::after {
+    transform: scale(0.66);
+    left: 1.5rem;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 100%;
+    bottom: 0;
+    content: "";
+    margin: auto;
+    position: absolute;
+    top: 0;
+  }
+  .form-checklist-checkbox:checked ~ .form-label::before {
+    border-color: #4496f6;
+  }
+  .form-checklist-checkbox:checked ~ .form-label::after {
+    background-color: #4496f6;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 100%;
+    bottom: 0;
+  }
+  .paymentProviderHeader-cc {
+    float: right;
+  }
+  .creditCardTypes-list {
+    list-style: none;
+    margin-left: 0;
+  }
+  .creditCardTypes-list-item {
+    opacity: 1;
+    transition: all 0.6s ease-out;
+    display: inline-block;
+    margin: 0.1875rem;
+  }
+  .cardIcon-icon {
+    position: relative;
+  }
+  .icon--medium {
+    height: 2.76923rem;
+    width: 2.76923rem;
+  }
+  .icon {
+    height: 3.38462rem;
+    width: 3.38462rem;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .paymentProviderHeader-img {
+    height: 1.92308rem;
+  }
+  .form-checklist-body {
+    margin-left: 4.5rem;
+    margin-right: 2.25rem;
+  }
+  .paymentMethod--creditCard {
+    clear: both;
+    padding: 0.66667rem 0;
+  }
+  .update-btn-center {
+    text-align: center;
+  }
+}
+
+@media (max-width:500px) {
+  .shopping-cart__product{
+      display: block;
+      .shopping-cart__product-img-container{
+          width: auto;
+          padding-top: 20px;
+      }
+      .shopping-cart__product-info-container{
+          padding: 10px 20px;
+      }
+  }
+}
