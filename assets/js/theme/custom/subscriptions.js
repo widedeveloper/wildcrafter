@@ -1,5 +1,5 @@
 import PageManager from '../page-manager';
-
+import $ from 'jquery'
 export default class Subscriptions extends PageManager {
   onReady() {
     this.noSubscriptionsText = 'You do not have any active subscriptions';
@@ -42,11 +42,11 @@ export default class Subscriptions extends PageManager {
     const apiHost = 'https://dev-api.wildcrafter.com';
     
     var self = this;
-    jQuery.ajax({
+    $.ajax({
       url: '/customer/current.jwt?app_client_id=' + clientId,
       success: function (data) {
         var token = data;
-        jQuery.ajax({
+        $.ajax({
           url: apiHost + '/customer/payments/',
           type: 'GET',
           beforeSend: function (xhr) {
@@ -101,11 +101,11 @@ export default class Subscriptions extends PageManager {
     const apiHost = 'https://dev-api.wildcrafter.com';
     
     var self = this;
-    jQuery.ajax({
+    $.ajax({
       url: '/customer/current.jwt?app_client_id=' + clientId,
       success: function (data) {
         var token = data;
-        jQuery.ajax({
+        $.ajax({
           url: apiHost + '/customer/subscriptions/' + subScriptonId + '/payment',
           type: 'Post',
           beforeSend: function (xhr) {
@@ -162,12 +162,12 @@ export default class Subscriptions extends PageManager {
     };
 
     var self = this;
-    jQuery.ajax({
+    $.ajax({
       url: '/customer/current.jwt?app_client_id=' + clientId,
       success: function (data) {
         var token = data;
         console.log('success ' + data);
-        jQuery.ajax({
+        $.ajax({
           url: apiHost + '/customer/subscriptions',
           type: 'GET',
           beforeSend: function (xhr) {
@@ -192,12 +192,12 @@ export default class Subscriptions extends PageManager {
                 item[x] = { data: product, productCount: productCount, itemCount: itemCount };
                 x++;
               });
-              jQuery('#subscriptions')
+              $('#subscriptions')
                 .html(item.map(subscriptionItem).join(''))
                 .show();
                 self.managerButtonHandler();
             } else {
-              jQuery('#subscriptions')
+              $('#subscriptions')
                 .text(noSubscriptionsText)
                 .show();
             }
@@ -221,7 +221,7 @@ export default class Subscriptions extends PageManager {
       //call second ajax 
       this.customerSubscription(subscriptionId)
       // console.log('plan id: ' + this.data('planId'));
-      jQuery('#subscriptions').hide();
+      $('#subscriptions').hide();
     });
   }
 
@@ -232,11 +232,11 @@ export default class Subscriptions extends PageManager {
 
     console.log('attempt customer subscription');
     var self = this;
-    jQuery.ajax({
+    $.ajax({
       url: '/customer/current.jwt?app_client_id=' + clientId,
       success: function (data) {
         var token = data;
-        jQuery.ajax({
+        $.ajax({
           url: apiHost + '/customer/subscriptions/' + subscriptionId,
           type: 'GET',
           beforeSend: function (xhr) {
@@ -253,7 +253,7 @@ export default class Subscriptions extends PageManager {
               self.edit_subscription(subscription);
 
             } else {
-              jQuery('.has-no-subscriptions')
+              $('.has-no-subscriptions')
                 .show();
             }
           }, // Array of customer subscriptions
@@ -271,11 +271,11 @@ export default class Subscriptions extends PageManager {
 
     console.log('attempt to delete subscription');
 
-    jQuery.ajax({
+    $.ajax({
       url: '/customer/current.jwt?app_client_id=' + clientId,
       success: function (data) {
         var token = data;
-        jQuery.ajax({
+        $.ajax({
           url: apiHost + '/customer/subscriptions/' + subscriptionId,
           type: 'DELETE',
           beforeSend: function (xhr) {
@@ -295,18 +295,18 @@ export default class Subscriptions extends PageManager {
   }
 
   edit_subscription(subscription) {
-    jQuery('#plan_id').html(subscription.name);
-    jQuery('#order_id').html(subscription.id);
-    jQuery('#ship_to').html(subscription.shipping[0].street_1 + " " + subscription.shipping[0].city +", "+ subscription.shipping[0].state + ", " + subscription.shipping[0].zip);
+    $('#plan_id').html(subscription.name);
+    $('#order_id').html(subscription.id);
+    $('#ship_to').html(subscription.shipping[0].street_1 + " " + subscription.shipping[0].city +", "+ subscription.shipping[0].state + ", " + subscription.shipping[0].zip);
     
-    jQuery('#active_status').html(subscription.status);
-    jQuery('#first_bill_date').html(subscription.firstBillingDate);
-    jQuery('#current_bill_period').html(subscription.billingPeriodStartDate + "-" + subscription.billingPeriodEndDate);
-    jQuery('#next_bill_date').html(subscription.nextBillingDate);
-    jQuery('#next_bill_amount').html(subscription.nextBillAmount);
-    jQuery('#recurrence').html(subscription.name);
+    $('#active_status').html(subscription.status);
+    $('#first_bill_date').html(subscription.firstBillingDate);
+    $('#current_bill_period').html(subscription.billingPeriodStartDate + "-" + subscription.billingPeriodEndDate);
+    $('#next_bill_date').html(subscription.nextBillingDate);
+    $('#next_bill_amount').html(subscription.nextBillAmount);
+    $('#recurrence').html(subscription.name);
     
-    jQuery('#subcription-delete').data('subid', subscription.id);
+    $('#subcription-delete').data('subid', subscription.id);
 
     var discountAmount = subscription.discounts[0].amount;
     this.subscriptionList(subscription.addOns, discountAmount);
@@ -315,7 +315,7 @@ export default class Subscriptions extends PageManager {
     
     this.customerPayment(current_card);
     
-    jQuery('#edit-subscriptions').show();
+    $('#edit-subscriptions').show();
 
 
   }
