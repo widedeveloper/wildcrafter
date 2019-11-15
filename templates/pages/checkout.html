@@ -87,6 +87,7 @@
             if (!html_loaded) {
                 pageUpdates();
                 addEditCartButton();
+                checksubscription();
             }
 
             if (!html_loaded & $checkout_app.hasClass("visible")) {
@@ -185,5 +186,59 @@
     function continueGuest() {
         jQuery("#checkout-customer-cancel")[0].click();
     }
+
+    function checksubscription(){
+        var discount = document.getElementsByClassName('product-price--beforeDiscount');
+        if ( discount.length > 0 ){
+            console.log("checksubscription");
+            jQuery(".form-checklist > li:eq(1)").css("display", "none");
+            jQuery(".form-checklist > li:eq(2)").css("display", "none");
+
+            jQuery("#shouldSaveInstrument").val("true");
+            
+
+            jQuery(".form-label").setPseudo(":before", "background-color", "#4496f6");
+            jQuery(".form-label").setPseudo(":before", "border-color", "#4496f6");
+
+            jQuery(".form-label").setPseudo(":after", "opacity", "1");
+            jQuery(".form-label").setPseudo(":after", "transform", "scale(1)");
+
+            jQuery(".form-field--saveInstrument").css("visibility", "hidden");
+            jQuery(".form-field--saveInstrument").css("position", "absolute");
+        }
+
+    }
+
+    (function($) {
+        jQuery.fn.extend({
+            getPseudo: function(pseudo, prop) {
+            var props = window.getComputedStyle(
+                $(this.selector).get(0), pseudo
+            ).getPropertyValue(prop);
+            return String(props);
+            },
+            setPseudo: function(_pseudo, _prop, newprop) {
+            var elem = $(this);
+            var s = $("style");
+            var p = elem.getPseudo(_pseudo, _prop);
+            console.log(p)
+            var r = p !== "" ? new RegExp(p) : false;
+            var selector = $.map(elem, function(val, key) {
+                return [val.tagName, val.id 
+                        ? "#" + val.id : null, val.className ? "." + val.className 
+                        : null]
+            });
+            var _setProp = "\n" + selector.join("")
+                .concat(_pseudo)
+                .concat("{")
+                .concat(_prop + ":")
+                .concat(newprop + "};");
+            ((!!r ? r.test($(s).text()) : r) ? $(s).text(function(index, prop) {
+                return prop.replace(r, newprop)
+            }) : $(s).append(_setProp));
+            return this
+            }
+        })
+        })(jQuery);
     
 </script>
